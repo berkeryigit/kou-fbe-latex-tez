@@ -1,97 +1,80 @@
-\documentclass[phd]{kou}
-
+\documentclass[msc]{kou}
 % Bazı temel bilgiler.
 \makeatletter
-
 % Kaynak dosyası.
 \addbibresource{kaynaklar.bib}
 \addbibresource{kisisel.bib}
-
 % Başlık
-\baslik{Tez Yazımı için Latex Kullanımı}	
-
+\baslik{Gemi Balast Tanklarının Otonom Denetimi İçin Reddedilmiş Ortamlara Yönelik Bütünleşik Robotik Sistem Mimarisi}
 % İngilizce başlık
-\thetitle{Latex for Writing Thesis}
-
+\thetitle{Integrated Robotic System Architecture for Autonomous Inspection of Ship Ballast Tanks in Denied Environments}
 % Yazar (Soyad Büyük yazılması gerekmektedir.)
-\yazar{Mehmet Gökçay KABATAŞ}         								
-
+\yazar{Berker YİĞİT}
 % Anabilim dalı - departman
-\bolum{Bilgisayar Mühendisliği}						
-
+\bolum{Bilgisayar Mühendisliği}
 % Tarih
 \tarihAY{Ocak}
-\tarihYIL{2022}
-
+\tarihYIL{2025}
 % Savunma Tarihi
-\starih{28.01.2022}		
-
+\starih{.../.../2025}
 % Juri Üyeleri Adıları ile Açıklamaları.
-\jrBIR{Prof.Dr./Doç.Dr./Dr. Öğr. Üyesi}						
-\jrBIRd{Danışman, Kocaeli Üniv.}						
-
-\jrIKI{Prof.Dr./Doç.Dr./Dr. Öğr. Üyesi}						
+% Danışman Bilgisi (Kullanıcı tarafından sağlandı)
+\jrBIR{Dr. Öğr. Üyesi Alpaslan Burak İNNER}						
+\jrBIRd{Danışman, Kocaeli Üniv.}
+% Diğer Jüri Üyeleri (Taslak)
+\jrIKI{Prof. Dr. Adı SOYADI}						
 \jrIKId{Jüri Üyesi, Kocaeli Üniv.}
-
-\jrUC{Prof.Dr./Doç.Dr./Dr. Öğr. Üyesi}						
-\jrUCd{Jüri Üyesi, İTÜ}						
-
-\jrDORT{Prof.Dr./Doç.Dr./Dr. Öğr. Üyesi}						
-\jrDORTd{Jüri Üyesi, Sakarya Üniv.}						
-
-\jrBES{Prof.Dr./Doç.Dr./Dr. Öğr. Üyesi}						
-\jrBESd{Jüri Üyesi, İstanbul Üniv.}	
-
+\jrUC{Dr. Öğr. Üyesi Adı SOYADI}						
+\jrUCd{Jüri Üyesi, ... Üniv.}
+% Yüksek Lisans tezlerinde genellikle 3 jüri yeterlidir ancak şablon gereği bırakılmıştır.
+\jrDORT{Prof. Dr. Adı SOYADI}						
+\jrDORTd{Jüri Üyesi, ... Üniv.}
+\jrBES{Prof. Dr. Adı SOYADI}						
+\jrBESd{Jüri Üyesi, ... Üniv.}
 \makeatother
-
 \begin{document}
-
 \kapakolustur
 \onayolustur
-
 % Romen rakamlarının başlatılması
 \clearpage
-\pagenumbering{roman} 
-
+\pagenumbering{roman}
 % Dizinleri  yazdırırken satır aralıklarının düzenlenmesi için
-% grup içerisine alınmış ve düzenleme yapılmıştır. Ayrıca gerekli
-% dizin isimlendirmeleri düzenlenmiştir.
+% grup içerisine alınmış ve düzenleme yapılmıştır.
 \begingroup
 \singlespacing
-
 \etikolustur
 \fikriolustur
-
+% Önsöz dosyasının içeriği önceki adımlarda oluşturuldu.
 \input{bolumler/onsoz.tex}
 \onsozolustur
-
 \renewcommand{\listfigurename}{Şekiller Dizini}
 \renewcommand{\listtablename}{Tablolar Dizini}
 \tableofcontents
 \listoffigures
 \listoftables
-
 \chapter*{Simgeler ve Kısaltmalar Dizini}
 \input{bolumler/simgeler.tex}
 \tocless\section{Kısaltmalar}
 \addtocounter{section}{1}
 \input{bolumler/kisaltmalar.tex}
-
+% Özet dosyasının içeriği (ozet.tex) önceki adımlarda oluşturuldu.
 \input{bolumler/ozet.tex}
 \ozetolustur
-
+% İngilizce Abstract dosyasının içeriği (abstract.tex) önceki adımlarda oluşturuldu.
 \input{bolumler/abstract.tex}
 \createabstract
-
 \endgroup
-
 % Latin/Arabic rakamların kullanılması
 \clearpage
 \pagenumbering{arabic}
-
-% Bolumlerin eklenmesi
-\input{bolumler/tutorial.tex}
-
+% Bölümlerin Eklenmesi
+% Not: 'tutorial.tex' yerine tezinizin ana bölümlerini (Giriş, Literatür, Materyal Yöntem vb.)
+% içeren dosyaları buraya eklemelisiniz.
+\input{bolumler/bolum1_giris.tex}
+\input{bolumler/bolum2_literatur.tex}
+\input{bolumler/bolum3_materyal_yontem.tex}
+\input{bolumler/bolum4_bulgular.tex}
+\input{bolumler/bolum5_sonuc.tex}
 % Satır aralığının tekrar 1 satır olduğu Ekler,
 % Kaynaklar, Kişisel yayın ve eser ile özgeçmiş bölümünün
 % gruplandırılması
@@ -99,18 +82,15 @@
 \singlespacing
 \sloppy
 \printbibliography[title={Kaynaklar}, notcategory=nobibliography]
-
-% Ekler bölümü var ise hem "\eklerolustur" komutunu hemde 
-% gerekli .tex dosyalarını input olarak giriniz.
+% Ekler bölümü: Donanım listesi ve algoritmik detaylar (ekA.tex)
+% önceki adımlarda oluşturulan içeriği kullanacaktır.
 \eklerolustur
 \input{bolumler/ekA.tex}
-
 % Kişisel yayın ve eser bölümü
 \begin{refsection}
 \input{bolumler/kisiseleser.tex}
 \end{refsection}
 % Özgeçmiş bölümü
 \input{bolumler/ozgecmis.tex}
-
 \endgroup
 \end{document}
